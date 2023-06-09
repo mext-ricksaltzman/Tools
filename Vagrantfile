@@ -71,19 +71,16 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt update
-    sudo apt install -y git
-    sudo apt install -y ansible
-    sudo apt install -y make g++ gcc
-    sudo apt install -y libevent-dev
+    sudo apt-get update
+    sudo apt-get install -y git
+    sudo apt-get install -y ansible
+    sudo apt-get install -y make g++ gcc
+    sudo apt-get install -y libevent-dev
   SHELL
 
   config.vm.define "builder", primary: true do |builder|
     builder.vm.hostname = "builder"
     builder.vm.provision :shell, inline: "echo from builder"
-    (254..254).each do |i|
-        builder.vm.network "private_network", ip: "192.168.25.#{i}", auto_config: true
-    end
   end
 
 end
