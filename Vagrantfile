@@ -71,11 +71,7 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
-    sudo apt-get install -y git
-    sudo apt-get install -y ansible
-    sudo apt-get install -y make g++ gcc
-    sudo apt-get install -y libevent-dev
+    /vagrant/apt_gets.sh
   SHELL
 
   config.vm.define "builder", primary: true do |builder|
