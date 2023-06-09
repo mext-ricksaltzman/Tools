@@ -26,4 +26,4 @@ jobs:
       run: vagrant ssh -- /vagrant/fetch_libmemcached.sh
 
     - name: build and install libmemcached
-      run: /vagrant/build_libmemcached.sh
+      run: vagrant ssh -- /vagrant/build_libmemcached.sh
