@@ -1,0 +1,33 @@
+name: Memcached build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: wget latest
+      run: wget https://memcached.org/latest
+
+    - name: tar -zxf latest
+      run: tar -zxf latest
+
+    - name: configure
+      run: memcached-1.6.19; ./configure --prefix=/usr/local/memcached
+
+    - name: Run make
+      run: make
+
+    - name: Run test
+      run: make test
+
+    - name: Run distcheck
+      run: make distcheck
