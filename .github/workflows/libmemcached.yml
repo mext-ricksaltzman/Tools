@@ -20,7 +20,7 @@ jobs:
     - name: fetch libmemcached and untar
       run: vagrant ssh -- /vagrant/fetch_libmemcached.sh
 
-    - name: build and install libmemcached
+    - name: build libmemcached
       run: vagrant ssh -- /vagrant/build_libmemcached.sh
 
   build-with-runs-on:
@@ -36,5 +36,5 @@ jobs:
     - name: fetch libmemcached and untar
       run: ./fetch_libmemcached.sh
 
-    - name: build and install libmemcached
+    - name: build libmemcached
       run: ./build_libmemcached.sh
