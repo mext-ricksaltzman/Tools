@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: get tools
+    - name: preparation
       run: ./apt_gets.sh
 
     - name: fetch libmemcached and untar
@@ -30,7 +30,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
         
-    - name: vagrant up
+    - name: preparation
       run: vagrant up
       
     - name: fetch libmemcached and untar
