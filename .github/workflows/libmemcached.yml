@@ -7,22 +7,6 @@ on: workflow_dispatch
   #  branches: [ "main" ]
 
 jobs:
-  build-with-runs-on:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: preparation
-      run: ./apt_gets.sh
-
-    - name: fetch libmemcached and untar
-      run: ./fetch_libmemcached.sh
-
-    - name: build and install libmemcached
-      run: ./build_libmemcached.sh
-
   build-with-vagrant:
 
     runs-on: macos-latest
@@ -39,3 +23,18 @@ jobs:
     - name: build and install libmemcached
       run: vagrant ssh -- /vagrant/build_libmemcached.sh
 
+  build-with-runs-on:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: preparation
+      run: ./apt_gets.sh
+
+    - name: fetch libmemcached and untar
+      run: ./fetch_libmemcached.sh
+
+    - name: build and install libmemcached
+      run: ./build_libmemcached.sh
