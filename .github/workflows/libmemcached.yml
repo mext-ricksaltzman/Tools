@@ -1,0 +1,33 @@
+name: libemcached build
+
+on: workflow_dispatch
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: wget libmemcached-1.0.18
+      run: wget https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz
+
+    - name: tar -zxf libmemcached-1.0.18.tar.gz
+      run: tar -zxf libmemcached-1.0.18.tar.gz
+
+    - name: configure
+      run: cd libmemcached-1.0.18.tar.gz; ./configure --prefix=/usr/local/libmemcached --enable-memaslap
+
+    - name: Run make
+      run: make
+
+    - name: Run test
+      run: make test
+
+    - name: Run install
+      run: sudo make install
