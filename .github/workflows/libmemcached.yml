@@ -14,11 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    #- name: vagrant up
-    #  run: vagrant up
+    - name: vagrant up
+      run: vagrant up
       
     - name: fetch libmemcached and untar
-      run: fetch_libmemcached.sh
+      run: vagrant ssh -- /vagrant/fetch_libmemcached.sh
 
     - name: build and install libmemcached
-      run: build_libmemcached.sh
+      run: /vagrant/build_libmemcached.sh
