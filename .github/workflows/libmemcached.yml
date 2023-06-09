@@ -7,7 +7,20 @@ on: workflow_dispatch
   #  branches: [ "main" ]
 
 jobs:
-  build:
+  build-here:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: all in one
+      run: |
+        apt_gets.sh
+        fetch_libmemcached.sh
+        build_libmemcached.sh
+
+  build-with-vagrant:
 
     runs-on: ubuntu-latest
 
@@ -17,8 +30,8 @@ jobs:
     - name: install virtualbox and vagrant
       run: |
         sudo apt-get update
-        sudo apt-get install virtualbox
-        sudo apt-get install vagrant
+        sudo apt-get install -y virtualbox
+        sudo apt-get install -y vagrant
 
     - name: vagrant up
       run: vagrant up
@@ -28,3 +41,4 @@ jobs:
 
     - name: build and install libmemcached
       run: vagrant ssh -- /vagrant/build_libmemcached.sh
+
