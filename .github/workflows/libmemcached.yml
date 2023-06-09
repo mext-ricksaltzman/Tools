@@ -16,13 +16,14 @@ jobs:
 
     - name: all in one
       run: |
+        ls -l
         apt_gets.sh
         fetch_libmemcached.sh
         build_libmemcached.sh
 
   build-with-vagrant:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
