@@ -16,10 +16,10 @@ jobs:
 
     - name: all in one
       run: |
-        ls -l;
-        apt_gets.sh;
-        fetch_libmemcached.sh;
-        build_libmemcached.sh
+        #ls -l
+        ./apt_gets.sh
+        ./fetch_libmemcached.sh
+        ./build_libmemcached.sh
 
   build-with-vagrant:
 
@@ -33,8 +33,8 @@ jobs:
         #sudo apt-get update
         #sudo apt-get install -y virtualbox
         #sudo apt-get install -y vagrant
-        brew cask install virtualbox
-        brew cask install vagrant
+        brew install --cask virtualbox
+        brew install --cask vagrant
         
     - name: vagrant up
       run: vagrant up
