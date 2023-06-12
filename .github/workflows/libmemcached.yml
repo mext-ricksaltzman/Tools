@@ -1,4 +1,4 @@
-name: libemcached build
+name: libmemcached build
 
 on: workflow_dispatch
   #push:
