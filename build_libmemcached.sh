@@ -9,15 +9,17 @@ cd libmemcached-1.0.18
 ./configure --enable-memaslap
 # fix up to ensure compile succeeds
 sed -i 's/opt_servers == false/opt_servers == NULL/g' clients/memflush.cc
-# build and test
-# make && make check >> make.log
+# build
+make >> make.log
+# test
+# make check >> make.log
 # install
 # sudo make install >> make.log
 # set up for package
 mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 # remove failuress due to dependencies on existing elements in /usr/bin
 sed -i 's/BuildRequires/\#BuildRequires/g' support/libmemcached.spec
-# make only the one rpm, not the dev and debug rpms
-sed -i 's/RPM_BUILD_TARGET) \\/RPM_BUILD_TARGET)/' Makefile
-sed -i 's/\tlibmemcached-de/\#\tlibmemcached-de/g' Makefile
+# do not make debug rpm
+sed -i 's/libmemcached-debuginfo/libmemcached-devel/' Makefile
+#package
 make rpm  >> make.log
