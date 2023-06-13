@@ -10,10 +10,10 @@ cd libmemcached-1.0.18
 # fix up to ensure compile succeeds
 sed -i 's/opt_servers == false/opt_servers == NULL/g' clients/memflush.cc
 # build for distribution
-make && make dist
-# check install
-sudo make install
-# set up for package creation
+make && make dist && make check > make.log
+# install
+sudo make install >> make.log
+# set up for package
 mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 # fails due to dependencies on existing elements in /uar/bin
-#make rpm 
+make rpm  >> make.log
