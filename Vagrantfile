@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/focal64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -80,6 +80,9 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y ansible
   # apt_gets.sh should an ansible role as per the use required
     /vagrant/apt_gets.sh
+  # run as user vagrant not as root
+  #  /vagrant/fetch_libmemcached.sh
+  #  /vagrant/build_libmemcached.sh
   SHELL
 
   config.vm.define "builder", primary: true do |builder|
