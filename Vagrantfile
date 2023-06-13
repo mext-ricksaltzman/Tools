@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/focal64"
+  config.vm.box = "ubuntu/bionic64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -73,6 +73,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
   # git and ansible required every time
     sudo apt-get install -y git
+  # specific for ubuntu
+  # see https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
+    sudo apt install software-properties-common
+    sudo add-apt-repository --yes --update ppa:ansible/ansible
     sudo apt-get install -y ansible
   # apt_gets.sh should an ansible role as per the use required
     /vagrant/apt_gets.sh
