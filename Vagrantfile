@@ -71,6 +71,10 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+  # git and ansible required every time
+    sudo apt-get install -y git
+    sudo apt-get install -y ansible
+  # apt_gets.sh should an ansible role as per the use required
     /vagrant/apt_gets.sh
   SHELL
 
