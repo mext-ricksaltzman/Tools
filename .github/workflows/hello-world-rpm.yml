@@ -1,4 +1,4 @@
-name: Hello World RPM Package
+name: Hello World RPM Package build then upload
 on: workflow_dispatch
 
 jobs:
@@ -17,6 +17,6 @@ jobs:
 
         - uses: actions/upload-artifact@v3
           with:
-            name: hello-world-1-1.x86_64.rpm
-            path: .
+            name: hello-world
+            path: hello-world-1-1.x86_64.rpm
 
