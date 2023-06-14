@@ -13,3 +13,10 @@ jobs:
             path: .
             spec: hello-world.spec
             distro: rocky-8
+            # ubuntu-20.04
+
+        - uses: actions/upload-artifact@v3
+          with:
+            name: hello-world-1-1.x86_64.rpm
+            path: .
+
