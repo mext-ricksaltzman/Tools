@@ -1,5 +1,5 @@
 name: Hello World RPM Package build then upload
-on: workflow_dispatch
+on: push
 
 jobs:
     package_rpm:
@@ -15,8 +15,11 @@ jobs:
             distro: rocky-8
             # ubuntu-20.04
 
+        - name: ls
+          run: ls -R .
+
         - uses: actions/upload-artifact@v3
           with:
             name: hello-world
-            path: /root/rpmbuild/RPMS/x86_64/hello-world-1-1.x86_64.rpm
+            path: ./hello-world-1-1.x86_64.rpm
 
