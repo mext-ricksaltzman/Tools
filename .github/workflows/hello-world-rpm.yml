@@ -5,7 +5,7 @@ jobs:
     package_rpm:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
 
         - name: Package RPM and SRPM
           uses: xmidt-org/rpm-package-action@v1
@@ -18,5 +18,5 @@ jobs:
         - uses: actions/upload-artifact@v3
           with:
             name: hello-world
-            path: hello-world-1-1.x86_64.rpm
+            path: /root/rpmbuild/RPMS/x86_64/hello-world-1-1.x86_64.rpm
 
