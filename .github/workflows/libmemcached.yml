@@ -38,3 +38,19 @@ jobs:
 
     - name: build libmemcached
       run: ./build_libmemcached.sh
+
+    - name: Package RPM and SRPM
+      uses: xmidt-org/rpm-package-action@v1
+      with:
+          path: .
+          spec: memaslap.spec
+          distro: rocky-8
+
+        # - name: ls
+        #   run: ls -R .
+
+    - uses: actions/upload-artifact@v3
+      with:
+          name: hello-world
+          path: ./output/memaslap-1.0.18-1.x86_64.rpm
+
