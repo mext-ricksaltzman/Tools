@@ -12,7 +12,7 @@ jobs:
           with:
             path: .
             spec: hello-world.spec
-            distro: ubuntu-20.04 # rocky-8
+            distro: ubuntu-latest # rocky-8
             # ubuntu-20.04
 
         # - name: ls
