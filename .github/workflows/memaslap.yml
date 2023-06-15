@@ -1,6 +1,6 @@
-name: libmemcached build
+name: memaslap
 
-on: workflow_dispatch
+on: push
   #push:
   #  branches: [ "main" ]
   #pull_request:
@@ -21,7 +21,7 @@ jobs:
       run: vagrant ssh -- /vagrant/fetch_libmemcached.sh
 
     - name: build libmemcached
-      run: vagrant ssh -- /vagrant/build_libmemcached.sh
+      run: vagrant ssh -- /vagrant/build_memaslap.sh
 
   build-with-runs-on:
 
@@ -37,7 +37,7 @@ jobs:
       run: ./fetch_libmemcached.sh
 
     - name: build libmemcached
-      run: ./build_libmemcached.sh
+      run: ./build_memaslap.sh
 
     - name: Package RPM and SRPM
       uses: xmidt-org/rpm-package-action@v1

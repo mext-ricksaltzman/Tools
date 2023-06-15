@@ -8,7 +8,7 @@ mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 # fetched previously
 cd libmemcached-1.0.18
 # from this repo add makefile and spec for memaslap
-cp /vagrant/memaslap.* .
+cp ../memaslap.* .
 # as per build instructions
 ./configure --enable-memaslap
 # fix up to ensure compile succeeds

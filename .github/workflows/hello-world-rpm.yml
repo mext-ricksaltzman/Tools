@@ -1,5 +1,5 @@
 name: Hello World RPM Package build then upload
-on: push
+on: workflow_dispatch
 
 jobs:
     package_rpm:
