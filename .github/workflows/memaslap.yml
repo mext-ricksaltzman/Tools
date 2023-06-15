@@ -14,15 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
         
-    - name: preparation
-      run: vagrant up
+    - name: memaslap rpm
+      run: vagrant up; vagrant ssh -- 'cp /vagrant/* .; ~/fetch_libmemcached.sh; ~/build_memaslap.sh'
       
-    - name: fetch libmemcached and untar
-      run: vagrant ssh -- /vagrant/fetch_libmemcached.sh
-
-    - name: build libmemcached
-      run: vagrant ssh -- /vagrant/build_memaslap.sh
-
   build-with-runs-on:
 
     runs-on: ubuntu-20.04

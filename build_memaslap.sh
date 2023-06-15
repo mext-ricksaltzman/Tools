@@ -4,7 +4,7 @@ sudo systemctl restart memcached
 # as per build instructions above 
 export LDFLAGS="-L/lib64 -lpthread"
 # set up for package
-mkdir -p ~/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+mkdir -p rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 # fetched previously
 cd libmemcached-1.0.18
 # from this repo add makefile and spec for memaslap
