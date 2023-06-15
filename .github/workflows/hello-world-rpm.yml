@@ -12,8 +12,8 @@ jobs:
           with:
             path: .
             spec: hello-world.spec
-            distro: ubuntu-latest # rocky-8
-            # ubuntu-20.04
+            distro: rocky-8
+            # ubuntu-20.04 failes
 
         # - name: ls
         #   run: ls -R .
