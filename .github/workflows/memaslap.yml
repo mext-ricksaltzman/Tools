@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v3
         
     - name: memaslap
-      run: vagrant up; vagrant ssh -- 'cp /vagrant/* .; ~/build_memaslap.sh'
+      run: cd memaslap; vagrant up; vagrant ssh -- 'cp -R /vagrant/* .; cd memaslap; ./build_memaslap.sh'
       
   build-with-runs-on:
 
@@ -25,7 +25,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: memaslap
-      run: ./apt_gets.sh; ./build_memaslap.sh
+      run: cd memaslap; ./apt_gets.sh; ./build_memaslap.sh
 
 #    - name: Package RPM and SRPM
 #      uses: xmidt-org/rpm-package-action@v1

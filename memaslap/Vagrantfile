@@ -71,6 +71,7 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get update
   # git and ansible required every time
     sudo apt-get install -y git
   # specific for ubuntu
@@ -79,7 +80,10 @@ Vagrant.configure("2") do |config|
     sudo add-apt-repository --yes --update ppa:ansible/ansible
     sudo apt-get install -y ansible
   # apt_gets.sh should an ansible role as per the use required
-  # /vagrant/apt_gets.sh
+    /vagrant/apt_gets.sh
+  # run as user vagrant not as root
+  #  /vagrant/fetch_libmemcached.sh
+  #  /vagrant/build_libmemcached.sh
   SHELL
 
   config.vm.define "builder", primary: true do |builder|
