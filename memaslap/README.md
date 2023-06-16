@@ -2,7 +2,7 @@
 For Testing, etc
 ## memaslap in libmemcached
 Build memaslap https://medium.com/swlh/the-complete-guide-to-benchmark-the-performance-of-memcached-on-ubuntu-16-04-71edeaf6e740.  
-memaslap.tar.gz is created and published. See makefil.memaslap, TBD create rpm  
+memaslap.tar.gz is created and published. See makefile.memaslap, TBD create rpm  
 Download memaslap.zip and softlink the executable
 ```
 unzip memaslap.zip
