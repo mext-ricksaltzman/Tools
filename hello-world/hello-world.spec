@@ -1,11 +1,11 @@
 Name:       hello-world
 Version:    1
-Release:    1
+Release:    2
 Summary:    Most simple RPM package
-License:    FIXME
+License:    None
 
 %description
-This is my first RPM package, which does nothing.
+Example rpm for general use
 
 %prep
 # we have no source, so nothing here
@@ -24,4 +24,5 @@ install -m 755 hello-world.sh %{buildroot}/usr/bin/hello-world.sh
 /usr/bin/hello-world.sh
 
 %changelog
-# let's skip this for now
+* Fri Jun 16 2002 <rick.saltzman@mext.one>
+- Creation
