@@ -20,18 +20,24 @@ jobs:
     - name: ls
       run: ls -R
 
-  build-with-runs-on:
-
-    runs-on: ubuntu-20.04
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: memaslap
-      run: cd memaslap; ./apt_gets.sh; ./build_memaslap.sh ; ls -R
-
     - uses: actions/upload-artifact@v3
       with:
           name: memaslap
           path: ./memaslap/memaslap*gz
+
+
+#  build-with-runs-on:
+
+#    runs-on: ubuntu-20.04
+
+#    steps:
+#    - uses: actions/checkout@v3
+
+#    - name: memaslap
+#      run: cd memaslap; ./apt_gets.sh; ./build_memaslap.sh ; ls -R
+
+#    - uses: actions/upload-artifact@v3
+#      with:
+#          name: memaslap
+#          path: ./memaslap/memaslap*gz
 
