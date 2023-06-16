@@ -4,7 +4,7 @@
 libmemcached-1.0.18/clients/memaslap: libmemcached-1.0.18/Makefile
 	cd libmemcached-1.0.18; make clients/memaslap
 
-libmemcached-1.0.18/Makfile: libmemcached-1.0.18/config.status
+libmemcached-1.0.18/Makefile: libmemcached-1.0.18/config.status
 	cd libmemcached-1.0.18; ./configure --enable-memaslap
 
 libmemcached-1.0.18/config.status: libmemcached-1.0.18.tar.gz
