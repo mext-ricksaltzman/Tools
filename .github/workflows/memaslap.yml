@@ -15,8 +15,11 @@ jobs:
     - uses: actions/checkout@v3
         
     - name: memaslap
-      run: cd memaslap; vagrant up; vagrant ssh -- 'cp -R /vagrant/* .; cd memaslap; ./build_memaslap.sh'
-      
+      run: cd memaslap; vagrant up; vagrant ssh -- 'cp -R /vagrant/* .; cd memaslap; ./build_memaslap.sh; cp memaslap*gz /vagrant'
+
+    - name: ls
+      run: ls -R
+
   build-with-runs-on:
 
     runs-on: ubuntu-20.04
@@ -30,5 +33,5 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
           name: memaslap
-          path: ./memaslap/*gz
+          path: ./memaslap/memaslap*gz
 
