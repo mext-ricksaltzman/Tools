@@ -1,4 +1,4 @@
-name: Hello World RPM Package build then upload
+name: Hello World RPM
 on: workflow_dispatch
 
 jobs:
@@ -10,16 +10,15 @@ jobs:
         - name: Package RPM and SRPM
           uses: xmidt-org/rpm-package-action@v1
           with:
-            path: .
+            path: ./hello-world
             spec: hello-world.spec
             distro: rocky-8
             # ubuntu-20.04 failes
 
-        # - name: ls
-        #   run: ls -R .
-
+        - name: ls
+          run: ls -R .
+          
         - uses: actions/upload-artifact@v3
           with:
             name: hello-world
-            path: ./output/hello-world-1-1.x86_64.rpm
-
+            path: ./hello-world//output
