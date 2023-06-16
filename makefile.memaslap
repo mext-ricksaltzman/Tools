@@ -1,0 +1,17 @@
+/usr/local/bin/memaslap: libmemcached-1.0.18/clients/memaslap
+	cd libmemcached-1.0.18; sudo ln -sf `pwd`/clients/memaslap /usr/local/bin
+
+libmemcached-1.0.18/clients/memaslap: libmemcached-1.0.18/Makefile
+	cd libmemcached-1.0.18; make clients/memaslap
+
+libmemcached-1.0.18/Makfile: libmemcached-1.0.18/config.status
+	cd libmemcached-1.0.18; ./configure --enable-memaslap
+
+libmemcached-1.0.18/config.status: libmemcached-1.0.18.tar.gz
+	tar -zxf libmemcached-1.0.18.tar.gz
+
+libmemcached-1.0.18.tar.gz:
+	wget https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz
+
+clean:
+	cd libmemcached-1.0.18; make clean
