@@ -24,22 +24,3 @@ jobs:
       with:
           name: memaslap
           path: ./memaslap/lib*memaslap*gz
-
-    - name: GitHub Actions Usage Audit
-      uses: fergusmacd/github-actions-usage@v0.9.0
-
-#  build-with-runs-on:
-
-#    runs-on: ubuntu-20.04
-
-#    steps:
-#    - uses: actions/checkout@v3
-
-#    - name: memaslap
-#      run: cd memaslap; ./apt_gets.sh; ./build_memaslap.sh ; ls -R
-
-#    - uses: actions/upload-artifact@v3
-#      with:
-#          name: memaslap
-#          path: ./memaslap/memaslap*gz
-
