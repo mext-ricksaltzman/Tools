@@ -1,15 +1,15 @@
 name: memaslap
 
-on: push
-  #push:
-  #  branches: [ "main" ]
-  #pull_request:
-  #  branches: [ "main" ]
+on:
+  push:
+    branches: [ "nobuild" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build-with-vagrant:
 
-    runs-on: macos-latest
+    runs-on: self-host # macos-latest
 
     steps:
     - uses: actions/checkout@v3
