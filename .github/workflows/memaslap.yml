@@ -25,6 +25,8 @@ jobs:
           name: memaslap
           path: ./memaslap/lib*memaslap*gz
 
+    - name: GitHub Actions Usage Audit
+      uses: fergusmacd/github-actions-usage@v0.9.0
 
 #  build-with-runs-on:
 
