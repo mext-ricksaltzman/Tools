@@ -27,6 +27,7 @@ libmemcached-1.0.18/clients/memaslap: libmemcached-1.0.18/Makefile
 
 # attempt to include sasl via apt-get installs did not resolve the warning
 libmemcached-1.0.18/Makefile: libmemcached-1.0.18/config.status
+	echo "sasl libs not installed"
 	cd libmemcached-1.0.18; ./configure --enable-memaslap
 	#configure: WARNING: request to add sasl support failed
 
