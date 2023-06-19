@@ -6,4 +6,4 @@ make
 mkdir -p ${HOME}/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 cp *spec ${HOME}/rpmbuild/SPECS
 cp libmemcached-memaslap-1.0.18.tar.gz ${HOME}/rpmbuild/SOURCES/libmemcached-1.0.18.tar.gz
-rpmbuild -ba ${HOME}/rpmbuild/SPECS/memaslap.spec
+#rpmbuild -ba ${HOME}/rpmbuild/SPECS/memaslap.spec
