@@ -1,21 +1,21 @@
 name: memaslap
 
-on: push
-  #push:
-  #  branches: [ "main" ]
-  #pull_request:
-  #  branches: [ "main" ]
+on:
+  push:
+    branches: [ "nobuild" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build-with-vagrant:
 
-    runs-on: macos-latest
+    runs-on: self-hosted # macos-latest
 
     steps:
     - uses: actions/checkout@v3
         
     - name: memaslap
-      run: cd memaslap; vagrant up; vagrant ssh -- 'cp -R /vagrant/* .; cd memaslap; ./build_memaslap.sh; cp memaslap*gz /vagrant'
+      run: cd memaslap; vagrant up; vagrant ssh -- 'cp -R /vagrant/* .; cd memaslap; ./build_memaslap.sh; cp lib*memaslap*gz /vagrant'
 
     - name: ls
       run: ls -R
@@ -23,7 +23,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
           name: memaslap
-          path: ./memaslap/memaslap*gz
+          path: ./memaslap/lib*memaslap*gz
 
 
 #  build-with-runs-on:
